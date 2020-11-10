@@ -251,9 +251,9 @@ class PrismaAdapter extends BaseKeystoneAdapter {
     // Everything below here is being cleaned up in an attempt to help out the garbage collector
     delete this.prisma;
     Object.values(this.listAdapters).forEach(listAdapter => {
-      delete listAdapter.prisma;
+      delete listAdapter.model;
     });
-    // delete require.cache[require.resolve(this.clientPath)];
+    delete require.cache[require.resolve(this.clientPath)];
   }
 
   getDefaultPrimaryKeyConfig() {
